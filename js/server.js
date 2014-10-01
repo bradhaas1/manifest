@@ -13,12 +13,15 @@ function start(route, handle) {
 
         route(handle, pathname);
 
-        response.writeHead(200, {"Content-Type": "text/plain"});
+        response.writeHead(200, {"Content-Type": "text/html"});
         response.write("Hello World");
-        response.write(manifest.getZips());
+        var results = manifest.getZips();
+        results.forEach(function(result){
+            response.write(result);
+        });
         response.end();
     }
-    http.createServer(onRequest).listen(8888);
+    http.createServer(onRequest).listen(8890);
     console.log("Server has started");
 }
 exports.start = start;

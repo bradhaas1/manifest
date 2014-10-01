@@ -5,35 +5,25 @@
 var admzip = require('adm-zip')
 var fs = require('fs');
 
-function getZips(){
-  var x;
+function getZips() {
+    var resultNames = [];
+    var results = [];
 
-//  var zip = new admzip('./src/informational.zip', function(){
-
-    // loads and parses existing zip file local_file.zip
     var zip = new admzip("./src/informational.zip");
+
 // get all entries and iterate them
-    zip.getEntries().forEach(function(entry) {
-      var entryName = entry.entryName;
-//      var decompressedData = zip.readFile(entry); // decompressed buffer of the entry
-//      console.log(zip.readAsText(entry)); // outputs the decompressed content of the entry
-      console.log(entryName.toString());
+    var entries = zip.getEntries();
+    entries.forEach(function (entry) {
+        var entryName = entry.entryName;
+        console.log(typeof(entryName) + ' ' + entryName);
+
+        var decompressedData = zip.readFile(entry); // decompressed buffer of the entry
+        results.push(zip.readAsText(entry)); // outputs the decompressed content of the entry
     });
 
-//  var zipEntries = zip.getEntries();
-//      zipEntries.forEach(function(zipEntry){
-//        alert(zipEntry.toString());
-//      });
-
-
-//    var zipEntries = zip.getEntries();
-//
-//    zipEntries.forEach(function(zipEntry){
-//      x += log(zipEntry.toString() + '\n');
-//    });
-
-  return x;
-
+//    var buffZip = zip.toBuffer();
+//    console.log(buffZip.isBuffer());
+    return results;
 }
 
 exports.getZips = getZips;
