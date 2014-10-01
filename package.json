@@ -1,0 +1,23 @@
+{
+  "name": "y",
+  "version": "0.0.1",
+  "description": "Generate precache files manifest.txt file",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/bradhaas1/manifest"
+  },
+  "author": "Brad Haas",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bradhaas1/manifest/issues"
+  },
+  "homepage": "https://github.com/bradhaas1/manifest",
+  "dependencies": {
+    "grunt": "^0.4.5",
+    "adm-zip": "^0.4.4"
+  }
+}
